@@ -1,0 +1,32 @@
+{
+  "name": "House of the Club",
+  "short_name": "house club",
+  "manifest_version": 2,
+  "version": "0.1.0",
+  "version_name": "0.1.0 beta",
+
+  "description": "Replace new tab page with a personal dashboard featuring your current stories, epic points and due dates from your Clubhouse account.",
+  "icons": {
+	"32": "icon_32.png",
+	"64": "icon_64.png",
+	"128": "icon_128.png",
+	"256": "icon_256.png"
+  },
+
+  "permissions": [
+	"storage",
+  "clipboardWrite"
+  ],
+
+  "browser_action": {
+	"default_popup": "popup.html",
+	"default_icon": "icon_32.png"
+  },
+
+  "options_page": "options.html",
+  "chrome_url_overrides" : {
+    "newtab": "newtab.html"
+  },
+
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
