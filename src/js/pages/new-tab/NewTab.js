@@ -18,7 +18,8 @@ class NewTab extends Component {
 			storyPoints: [],
 			dueDates: [],
 			randomPhotos: [],
-			date: {}
+			date: '',
+			randomNumber: this.getRandomInt(0, 19)
 		}
 	}
 	componentDidMount() {
@@ -32,10 +33,10 @@ class NewTab extends Component {
 				token: api_key
 			});
 			const isAtLeastADayAgo = this.isADayAgo();
-			if (json.randomPhotos && !isAtLeastADayAgo) {
+			if (!isAtLeastADayAgo && json.randomPhotos.length !== 0 && json.date !== '') {
 				this.setState({
-					randomPhotos: json.randomPhotos,
-					date: json.date
+					date: json.date,
+					randomPhotos: json.randomPhotos
 				});
 			} else {
 				this.getPhoto();
@@ -67,7 +68,7 @@ class NewTab extends Component {
 
 	setPhotos = (json) => {
 		const randomPhotos = randomPhotosMapper(json.hits);
-		const date = moment();
+		const date = moment().format('YYYY MM DD');
 		const newOptions = Object.assign({}, {
 			...this.state.api_key,
 			randomPhotos,
@@ -75,7 +76,7 @@ class NewTab extends Component {
 		});
 		this.setState({
 			randomPhotos: randomPhotos,
-			date: date
+			date
 		})
 		saveToStorage(newOptions);
 	}
@@ -114,20 +115,23 @@ class NewTab extends Component {
 	}
 
 	isADayAgo = () => {
-		let yesterday = moment().subtract(1, 'd');
-		return moment().isBefore(yesterday);
+		let yesterday = moment().subtract(1, 'days').format('YYYY MM DD');
+		if (this.state.date === '') {
+			return true;
+		} else {
+			return moment(this.state.date).isBefore(moment(yesterday));
+		}
 	}
 	  
 	render() {
-		const { storiesInDev, dueDates, storyPoints, randomPhotos, token } = this.state;
-		const randomNumber = this.getRandomInt(0, 19);
+		const { storiesInDev, dueDates, storyPoints, randomPhotos, token, randomNumber } = this.state;
 
 		return (
 		  <div className='App'>
 			  {randomPhotos.length > 0 && <div className="background" style={{backgroundImage: `url(${randomPhotos[randomNumber].photo})`}}></div>}
 				{token ? (
 					<div>
-						<div className="welcome">Hello, {this.state.name}!</div>
+						<div className="welcome">Hello{this.state.name && `, ${this.state.name}`}!</div>
 						<h2>
 						<small>TODAY'S WORK</small>
 						{storiesInDev && storiesInDev.slice(0, 2).map((story, i) => (

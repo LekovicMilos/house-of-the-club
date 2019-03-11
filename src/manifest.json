@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "version_name": "0.1.0 beta",
 
-  "description": "Replace new tab page with a personal dashboard featuring your current stories, epic points and due dates from your Clubhouse account.",
+  "description": "Replace new tab page with a personal dashboard featuring current stories, epic points and due dates from your Clubhouse account.",
   "icons": {
 	"32": "icon_32.png",
 	"64": "icon_64.png",
