@@ -13,6 +13,41 @@ body {
 	background: #291e38;
 }
 
+input {
+	background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    box-shadow: 0 6px 12px -6px rgba(0,0,0,.05) inset;
+	font-size: 18px;
+	outline: 0;
+	padding: 8px 10px;
+	margin: 10px auto;
+    display: block;
+}
+
+input::placeholder {
+	color: #d5d3d3;
+  }
+
+button {
+	font-size: 18px;
+    line-height: 21px;
+	background: #0db350;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 -2px 0 -1px rgba(0,0,0,.12) inset;
+    color: #fff;
+    display: inline-block;
+    margin: 0 10px 0 0;
+    outline: 0;
+	padding: 10px 20px;
+	cursor: pointer;
+}
+
+h1 {
+	color: #ffffff;
+}
+
 a {
 	text-decoration: none;
 }

@@ -12,7 +12,9 @@
 
 # House of the Club (Chrome Extension)
 
-You can download the ***Chrome Extension*** [here](https://github.com/LekovicMilos).
+You can check out the ***Chrome Extension*** [here](https://chrome.google.com/webstore/detail/house-of-the-club/famblplfdndpnehjfifcffdpoihndihg?hl=sr).
+
+You can download the ***code*** [here](https://github.com/LekovicMilos).
 
 ------
 
@@ -59,8 +61,10 @@ Inspired by Momentum Chrome Extension
 
 ###### Future Plans
 
+- [ ] Optimize image loading
 - [ ] Add more images
-- [ ] Receive feedback and depending on that, addd/change features
+- [ ] Receive feedback and depending on that, add/change features
+- [ ] Design logo
 
 ------
 

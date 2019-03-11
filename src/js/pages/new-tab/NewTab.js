@@ -134,12 +134,14 @@ class NewTab extends Component {
 						<div className="welcome">Hello{this.state.name && `, ${this.state.name}`}!</div>
 						<h2>
 						<small>TODAY'S WORK</small>
-						{storiesInDev && storiesInDev.slice(0, 2).map((story, i) => (
+						{storiesInDev ? storiesInDev.slice(0, 2).map((story, i) => (
 							<div key={`story-${i}`}>
 							{i !== 0 && storiesInDev.length !== 1 && <div className="and">and</div>}
 							<a href={story.app_url} target="_blank">{story.name}</a>
 							</div>
-						))}
+						)) :
+							<div>No stories in development! Fancy taking one?</div>
+						}
 						</h2>
 						{randomPhotos.length > 0 && (
 							<div className="photo-info">
